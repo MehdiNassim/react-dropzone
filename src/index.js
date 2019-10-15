@@ -410,7 +410,7 @@ export function useDropzone({
         if (inputRef.current) {
           const { files } = inputRef.current
 
-          if (!files.length) {
+          if (!files || (files && !files.length)) {
             dispatch({ type: 'closeDialog' })
 
             if (typeof onFileDialogCancel === 'function') {
